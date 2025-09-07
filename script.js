@@ -75,7 +75,7 @@ if (contactForm) {
     });
 }
 
-// Typing animation for hero title
+// One Piece themed typing animation for hero title
 function typeWriter(element, text, speed = 100) {
     let i = 0;
     element.innerHTML = '';
@@ -85,6 +85,14 @@ function typeWriter(element, text, speed = 100) {
             element.innerHTML += text.charAt(i);
             i++;
             setTimeout(type, speed);
+        } else {
+            // Add One Piece emoji animation after typing completes
+            setTimeout(() => {
+                const emoji = document.createElement('span');
+                emoji.innerHTML = ' 🏴‍☠️';
+                emoji.style.animation = 'bounce 1s infinite';
+                element.appendChild(emoji);
+            }, 500);
         }
     }
     type();
@@ -99,35 +107,82 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Project card hover effects
+// One Piece themed project card hover effects
 document.querySelectorAll('.project-card').forEach(card => {
     card.addEventListener('mouseenter', () => {
-        card.style.transform = 'translateY(-10px) scale(1.02)';
+        card.style.transform = 'translateY(-15px) scale(1.05) rotate(2deg)';
+        card.style.boxShadow = '0 25px 50px rgba(231, 76, 60, 0.3)';
+        
+        // Add treasure sparkle effect
+        const sparkle = document.createElement('div');
+        sparkle.innerHTML = '✨';
+        sparkle.style.position = 'absolute';
+        sparkle.style.top = '10px';
+        sparkle.style.right = '10px';
+        sparkle.style.fontSize = '20px';
+        sparkle.style.animation = 'bounce 0.5s infinite';
+        sparkle.className = 'treasure-sparkle';
+        card.appendChild(sparkle);
     });
     
     card.addEventListener('mouseleave', () => {
-        card.style.transform = 'translateY(0) scale(1)';
+        card.style.transform = 'translateY(0) scale(1) rotate(0deg)';
+        card.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.05)';
+        
+        // Remove sparkle effect
+        const sparkle = card.querySelector('.treasure-sparkle');
+        if (sparkle) {
+            sparkle.remove();
+        }
     });
 });
 
-// Skill item hover effects
+// One Piece themed skill item hover effects (Devil Fruit powers)
 document.querySelectorAll('.skill-item').forEach(item => {
     item.addEventListener('mouseenter', () => {
-        item.style.transform = 'translateY(-5px) scale(1.05)';
+        item.style.transform = 'translateY(-8px) scale(1.1) rotate(5deg)';
+        item.style.background = 'linear-gradient(135deg, #e74c3c, #f39c12)';
+        item.style.color = 'white';
+        
+        // Add power aura effect
+        const aura = document.createElement('div');
+        aura.style.position = 'absolute';
+        aura.style.top = '-5px';
+        aura.style.left = '-5px';
+        aura.style.right = '-5px';
+        aura.style.bottom = '-5px';
+        aura.style.border = '2px solid #f39c12';
+        aura.style.borderRadius = '12px';
+        aura.style.animation = 'pulse 1s infinite';
+        aura.className = 'power-aura';
+        item.style.position = 'relative';
+        item.appendChild(aura);
     });
     
     item.addEventListener('mouseleave', () => {
-        item.style.transform = 'translateY(0) scale(1)';
+        item.style.transform = 'translateY(0) scale(1) rotate(0deg)';
+        item.style.background = '#f8fafc';
+        item.style.color = '#374151';
+        
+        // Remove power aura effect
+        const aura = item.querySelector('.power-aura');
+        if (aura) {
+            aura.remove();
+        }
     });
 });
 
-// Parallax effect for hero section
+// One Piece themed parallax effect for hero section (sailing through the Grand Line)
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     const hero = document.querySelector('.hero');
     if (hero) {
-        const rate = scrolled * -0.5;
+        const rate = scrolled * -0.3;
         hero.style.transform = `translateY(${rate}px)`;
+        
+        // Add wave effect to background
+        const waveOffset = scrolled * 0.1;
+        hero.style.backgroundPosition = `${waveOffset}px center`;
     }
 });
 
@@ -168,28 +223,29 @@ function scrollToTop() {
     });
 }
 
-// Add scroll to top button functionality
+// One Piece themed scroll to top button (Going Merry style)
 const scrollToTopBtn = document.createElement('button');
-scrollToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+scrollToTopBtn.innerHTML = '🏴‍☠️';
 scrollToTopBtn.className = 'scroll-to-top';
 scrollToTopBtn.style.cssText = `
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    background: #2563eb;
+    background: linear-gradient(135deg, #e74c3c, #f39c12);
     color: white;
-    border: none;
+    border: 3px solid #2c3e50;
     cursor: pointer;
     display: none;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     transition: all 0.3s ease;
     z-index: 1000;
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 8px 20px rgba(231, 76, 60, 0.4);
+    animation: float 3s ease-in-out infinite;
 `;
 
 document.body.appendChild(scrollToTopBtn);
@@ -205,13 +261,44 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Add hover effect to scroll to top button
+// One Piece themed hover effects for scroll to top button
 scrollToTopBtn.addEventListener('mouseenter', () => {
-    scrollToTopBtn.style.transform = 'scale(1.1)';
-    scrollToTopBtn.style.background = '#1d4ed8';
+    scrollToTopBtn.style.transform = 'scale(1.2) rotate(10deg)';
+    scrollToTopBtn.style.background = 'linear-gradient(135deg, #c0392b, #e67e22)';
+    scrollToTopBtn.style.boxShadow = '0 12px 30px rgba(231, 76, 60, 0.6)';
 });
 
 scrollToTopBtn.addEventListener('mouseleave', () => {
-    scrollToTopBtn.style.transform = 'scale(1)';
-    scrollToTopBtn.style.background = '#2563eb';
+    scrollToTopBtn.style.transform = 'scale(1) rotate(0deg)';
+    scrollToTopBtn.style.background = 'linear-gradient(135deg, #e74c3c, #f39c12)';
+    scrollToTopBtn.style.boxShadow = '0 8px 20px rgba(231, 76, 60, 0.4)';
+});
+
+// Add One Piece themed page load animation
+document.addEventListener('DOMContentLoaded', () => {
+    // Create treasure chest opening effect
+    const treasureChest = document.createElement('div');
+    treasureChest.innerHTML = '💰';
+    treasureChest.style.position = 'fixed';
+    treasureChest.style.top = '50%';
+    treasureChest.style.left = '50%';
+    treasureChest.style.transform = 'translate(-50%, -50%) scale(0)';
+    treasureChest.style.fontSize = '100px';
+    treasureChest.style.zIndex = '9999';
+    treasureChest.style.transition = 'all 0.5s ease';
+    treasureChest.style.pointerEvents = 'none';
+    document.body.appendChild(treasureChest);
+    
+    // Animate treasure chest opening
+    setTimeout(() => {
+        treasureChest.style.transform = 'translate(-50%, -50%) scale(1)';
+    }, 100);
+    
+    // Remove treasure chest after animation
+    setTimeout(() => {
+        treasureChest.style.transform = 'translate(-50%, -50%) scale(0)';
+        setTimeout(() => {
+            treasureChest.remove();
+        }, 500);
+    }, 1500);
 }); 
