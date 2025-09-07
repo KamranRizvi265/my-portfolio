@@ -200,6 +200,11 @@ To change fonts:
 
 The portfolio currently showcases these data science adventures:
 
+### 🤖 Jarvis Voice Assistant
+- **Description**: Intelligent voice assistant with speech recognition, Wikipedia search, and web browser integration
+- **Technologies**: Python, Speech Recognition, Text-to-Speech, Web Integration
+- **GitHub**: [Jarvis Voice Assistant](https://github.com/KamranRizvi265/Jarvis)
+
 ### 🏴‍☠️ Netflix Treasure Hunt
 - **Description**: Data analysis of Netflix's vast dataset to discover content trends and genre popularity
 - **Technologies**: Python, Pandas, Matplotlib
@@ -209,11 +214,6 @@ The portfolio currently showcases these data science adventures:
 - **Description**: C-based console application for secure treasure management with file handling
 - **Technologies**: C, File Handling, Structures
 - **GitHub**: [User Management System](https://github.com/KamranRizvi265/C_Projects/blob/main/User%20Management/user_management.c)
-
-### ⏰ Pirate's Chronometer
-- **Description**: Real-time digital clock displaying system time in multiple formats
-- **Technologies**: C, Time Handling, CLI Programming
-- **GitHub**: [Clock Application](https://github.com/KamranRizvi265/C_Projects/blob/main/Clock/clock.c)
 
 ## Current Skills (Devil Fruit Powers)
 
